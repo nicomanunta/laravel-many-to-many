@@ -51,9 +51,9 @@
                                 </div>
                             @endforeach
                         </div>
-                        @error('type_id')
+                        {{-- @error('type_id')
                             <div class="text-danger">{{$message}}</div> 
-                        @enderror
+                        @enderror --}}
                     </div>
 
                     <div class="form-group mb-3">

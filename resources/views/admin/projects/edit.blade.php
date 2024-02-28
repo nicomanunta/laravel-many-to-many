@@ -42,6 +42,24 @@
                             <div class="text-danger">{{$message}}</div> 
                         @enderror
                     </div>
+                    <div class="form-group mb-3">
+                        <label class="control-label">Tecnologia</label>
+                        <div>
+                            @foreach ($technologies as $technology)
+                                <div class="form-check-inline">
+                                    @if ($errors->any())
+                                        <input type="checkbox" name="technologies[]" id="technology-{{$technology->id}}" class="form-check-input" value="{{$technology->id}}" {{in_array($technology->id, old('technologies')) ? 'checked' : ''}}>                             
+                                    @else
+                                        <input type="checkbox" name="technologies[]" id="technology-{{$technology->id}}" class="form-check-input" value="{{$technology->id}}" {{$project->technologies->contains($technology->id) ? 'checked' : ''}}>
+                                    @endif
+                                    <label class="form-check-label">{{$technology->name}}</label>                                   
+                                </div>
+                            @endforeach
+                        </div>
+                        {{-- @error('type_id')
+                            <div class="text-danger">{{$message}}</div> 
+                        @enderror --}}
+                    </div>
                     <div class="form-group mb-3" >
                         <div class="mb-3">
                             @if ($project->cover_immagine != null)
