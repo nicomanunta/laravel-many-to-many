@@ -11,6 +11,13 @@
                 <h2>{{$project->nome_progetto}}</h2>
                 <span>{{$project->slug}}</span>
                 <p class="mt-5">{{$project->descrizione}}</p>
+                <p>
+                    @forelse ($project->technologies as $technology)
+                        #{{$technology->name}}
+                    @empty
+                        Le tecnologie usate in questo progetto non sono specificate
+                    @endforelse
+                </p>
                 
                 <span class="mt-5">Tipo: {{$project->type ? $project->type->name : 'Senza tipo'}}</span>
                 <br>
